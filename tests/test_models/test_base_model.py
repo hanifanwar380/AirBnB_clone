@@ -4,7 +4,7 @@
 
 
 Unittest classes:
-    TestBaseModel_instantiation
+    TestBaseModel_instant
     TestBaseModel_save
     TestBaseModel_to_dict
     """
