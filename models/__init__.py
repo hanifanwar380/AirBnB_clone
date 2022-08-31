@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""__init__ maginc method for model directory"""
-
+""" This model represents an object of class FileStorage """
 from models.engine.file_storage import FileStorage
 
 
