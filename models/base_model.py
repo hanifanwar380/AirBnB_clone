@@ -35,13 +35,11 @@ class BaseModel:
         else:
             storage.new(self)
 
-
     def save(self):
         """To update update_at with the current date time
         """
         self.updated_at = datetime.today()
         storage.save()
-
 
     def to_dict(self):
         """Return the dictionary of the BaseModel instance.
@@ -56,7 +54,6 @@ class BaseModel:
         mod_dict["__class__"] = self.__class__.__name__
 
         return mod_dict
-
 
     def __str__(self):
         """Return the modified representation of this Base Model"""

@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 """ Project HBNB Place Module """
- 
+
 from models.base_model import BaseModel
+
+
 class Place(BaseModel):
     """ Place to stay """
+
+
 city_id = ""
 user_id = ""
 name = ""

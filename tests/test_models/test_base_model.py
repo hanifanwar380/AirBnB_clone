@@ -1,5 +1,5 @@
-
 #!/usr/bin/python3
+
 """Defines unittests for models/base_model.py.
 
 
@@ -23,12 +23,11 @@ class TestBaseModel_instant(unittest.TestCase):
     def test_no_args_instantiates(self):
         self.assertEqual(BaseModel, type(BaseModel()))
 
-
     def test_two_models_with_unique_ids(self):
         bm1 = BaseModel()
         bm2 = BaseModel()
         self.assertNotEqual(bm1.id, bm2.id)
-    
-    
+
+
 if __name__ == "__main__":
     unittest.main()
