@@ -4,6 +4,11 @@
 
 import cmd
 
+from models import storage
+from models.base_model import BaseModel
+
+import re
+import json
 
 class HBNBCommand(cmd.Cmd):
     """Defines the HBnB command interpreter.
@@ -27,7 +32,15 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """Creates a new instance of BaseModel,
             saves it (to the JSON file)"""
-        pass
+        if arg == "" or arg == None:
+            print("** class name missing **")
+        elif arg not in storage.classes:
+            print("** class doesn't exist **")
+        else:
+            item = storage.classes()[arg]()
+            item.save()
+            print(item.id)
+            
 
     def do_show(self, arg):
         """Prints the string representation of an instance
