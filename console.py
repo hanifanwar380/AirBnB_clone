@@ -19,15 +19,15 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
         pass
-    
+
     def default(self, arg):
         """Catch commands if nothing else matches then."""
         # print("DEF:::", line)
         self._precmd(arg)
 
     def _precmd(self, arg):
-        """Intercepts commands to test for class.syntax()"""
-        
+        """Intercepts commands for class.syntax()"""
+
         match = re.search(r"^(\w*)\.(\w+)(?:\(([^)]*)\))$", arg)
         if not match:
             return arg
@@ -59,8 +59,8 @@ class HBNBCommand(cmd.Cmd):
 
     def update_dict(self, classname, uid, s_dict):
         """Helper method for update() with a dictionary."""
-        s = s_dict.replace("'", '"')
-        d = json.loads(s)
+        strr = s_dict.replace("'", '"')
+        dump = json.loads(strr)
         if not classname:
             print("** class name missing **")
         elif classname not in storage.classes():
@@ -73,12 +73,11 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 attributes = storage.attributes()[classname]
-                for attribute, value in d.items():
+                for attribute, value in dump.items():
                     if attribute in attributes:
                         value = attributes[attribute](value)
                     setattr(storage.all()[key], attribute, value)
                 storage.all()[key].save()
-
 
     def do_quit(self, arg):
         """Quit command to exit the program."""
