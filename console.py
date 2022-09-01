@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
             saves it (to the JSON file)"""
         if arg == "" or arg is None:
             print("** class name missing **")
-        elif arg not in storage.classes:
+        elif arg not in storage.classes():
             print("** class doesn't exist **")
         else:
             item = storage.classes()[arg]()
