@@ -6,27 +6,8 @@ import cmd
 
 from models import storage
 
-
 import re
-from shlex import split
 import json
-
-def do_parse(arg):
-    braces = re.search(r"\{(.*?)\}", arg)
-    brackets = re.search(r"\[(.*?)\]", arg)
-    if braces is None:
-        if brackets is None:
-            return [i.strip(",") for i in split(arg)]
-        else:
-            lexer = split(arg[:brackets.span()[0]])
-            retl = [i.strip(",") for i in lexer]
-            retl.append(brackets.group())
-            return retl
-    else:
-        lexer = split(arg[:braces.span()[0]])
-        retl = [i.strip(",") for i in lexer]
-        retl.append(braces.group())
-        return retl
 
 
 class HBNBCommand(cmd.Cmd):
