@@ -41,7 +41,7 @@ class FileStorage:
 
         with open(FileStorage.__file_path, "w") as file:
             json.dump(obj_dict, file)
-    
+
     def classes(self):
         """Returns a dictionary of valid classes and their references."""
         from models.base_model import BaseModel
