@@ -31,9 +31,8 @@ class FileStorage:
         """sets in __objects the obj with key <obj class name>.id
         """
 
-        object_class_name = obj.__class__.__name__
-
-        FileStorage.__objects["{}.{}".format(object_class_name, obj.id)] = obj
+        key = "{}.{}".format(type(obj).__name__, obj.id)
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """Serialize __objects to the JSON file __file_path."""
@@ -41,7 +40,7 @@ class FileStorage:
         o_dict = FileStorage.__objects
         obj_dict = {obj: o_dict[obj].to_dict() for obj in o_dict.keys()}
 
-        with open(FileStorage.__file_path, "w") as file:
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
             json.dump(obj_dict, file)
 
     def classes(self):
@@ -67,16 +66,12 @@ class FileStorage:
         """Deserialize the JSON file __file_path to __objects, if it exists."""
         if not os.path.isfile(FileStorage.__file_path):
             return
+        with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
+            obj_dict = json.load(file)
+            obj_dict = {key: self.classes()[v["__class__"]](**value)
+                        for key, value in obj_dict.items()}
 
-        try:
-            with open(FileStorage.__file_path) as file:
-                object_dict = json.load(file)
-                for obj in object_dict.values():
-                    class_name = obj["__class__"]
-                    del obj["__class__"]
-                    self.new(eval(class_name)(**obj))
-        except FileNotFoundError:
-            return
+            FileStorage.__objects = obj_dict
 
     def attributes(self):
         """Returns the valid attributes and their types for classname."""
@@ -114,3 +109,4 @@ class FileStorage:
                          "user_id": str,
                          "text": str}
         }
+        return attributes

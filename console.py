@@ -49,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         else:
             word = arg.split(" ")
-            if word[0] not in storage.classes:
+            if word[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(word) < 2:
                 print("** instance id missing **")
