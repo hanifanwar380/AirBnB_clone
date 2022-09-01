@@ -1,4 +1,4 @@
 #!/bin/bash
 # Script to check all python files in this repo and run the pep8 checker on them.
 
-find . -name "*.py" | xargs pep8
+find . -name "*.py" | xargs pycodestyle

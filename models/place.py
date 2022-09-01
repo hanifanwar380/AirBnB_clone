@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-""" Project HBNB Place Module """
+""" Project HBNB Place class Module """
 
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """ Place to stay """
+    """ Class for places to stay"""
 
 
 city_id = ""
