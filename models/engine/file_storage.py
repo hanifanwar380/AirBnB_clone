@@ -68,7 +68,7 @@ class FileStorage:
             return
         with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
             obj_dict = json.load(file)
-            obj_dict = {key: self.classes()[v["__class__"]](**value)
+            obj_dict = {key: self.classes()[value["__class__"]](**value)
                         for key, value in obj_dict.items()}
 
             FileStorage.__objects = obj_dict
