@@ -58,4 +58,5 @@ class BaseModel:
     def __str__(self):
         """Return the modified representation of this Base Model"""
         class_name = self.__class__.__name__
-        return "{} {} {}".format(class_name, self.id, self.__dict__)
+        return "[{}] ({}) {}".\
+            format(class_name, self.id, self.__dict__)
