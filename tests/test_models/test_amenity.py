@@ -1,18 +1,17 @@
 #!/usr/bin/python3
-"""Unittest module for the Place Class."""
+"""Unittest module for the Amenity Class."""
 
 import unittest
-
-from models.place import Place
+from models.amenity import Amenity
 from models.engine.file_storage import FileStorage
 import os
 from models import storage
 from models.base_model import BaseModel
 
 
-class TestPlace(unittest.TestCase):
+class TestAmenity(unittest.TestCase):
 
-    """Test Cases for the Place class."""
+    """Test Cases for the Amenity class."""
 
     def setUp(self):
         """Sets up test methods."""
@@ -30,21 +29,21 @@ class TestPlace(unittest.TestCase):
             os.remove(FileStorage._FileStorage__file_path)
 
     def test_8_instantiation(self):
-        """Tests instantiation of Place class."""
+        """Tests instantiation of Amenity class."""
 
-        test_object = Place()
+        test_object = Amenity()
         self.assertEqual(str(type(test_object)),
-                         "<class 'models.place.Place'>")
-        self.assertIsInstance(test_object, Place)
+                         "<class 'models.amenity.Amenity'>")
+        self.assertIsInstance(test_object, Amenity)
         self.assertTrue(issubclass(type(test_object), BaseModel))
 
     def test_8_attributes(self):
-        """Tests the attributes of Place class."""
-        attributes = storage.attributes()["Place"]
-        test_object = Place()
-        for k, v in attributes.items():
-            self.assertTrue(hasattr(test_object, k))
-            self.assertEqual(type(getattr(test_object, k, None)), v)
+        """Tests the attributes of Amenity class."""
+        attributes = storage.attributes()["Amenity"]
+        test_object = Amenity()
+        for key, value in attributes.items():
+            self.assertTrue(hasattr(test_object, key))
+            self.assertEqual(type(getattr(test_object, key, None)), value)
 
 
 if __name__ == "__main__":

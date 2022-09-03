@@ -46,5 +46,6 @@ class TestCity(unittest.TestCase):
             self.assertTrue(hasattr(test_object, key))
             self.assertEqual(type(getattr(test_object, key, None)), value)
 
+
 if __name__ == "__main__":
     unittest.main()
