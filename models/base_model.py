@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Defining the base model for the package
-    """
+""" Defining the base model for the package """
 
 from datetime import datetime
 
