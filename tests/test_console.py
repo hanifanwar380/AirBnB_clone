@@ -10,6 +10,7 @@ Unittest classes:
     TestHBNBCommand_destroy
     TestHBNBCommand_update
 """
+
 import os
 import sys
 import unittest
