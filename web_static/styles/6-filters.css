@@ -55,10 +55,8 @@ h4 {
   border: #dddddd 1px solid;
   border-radius: 4px;
   list-style-type: none;
-
   visibility: hidden;
   color: #484848;
-
   z-index: 1;
   position: relative;
   margin-top: 17px;
