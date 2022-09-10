@@ -9,9 +9,10 @@ html {
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  height: 100%;
+  position: relative;
+  /* display: flex;
+  flex-wrap: wrap; */
   color: #484848;
   font-size: 14px;
   font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
