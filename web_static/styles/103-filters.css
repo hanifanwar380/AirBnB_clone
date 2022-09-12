@@ -77,3 +77,44 @@ h4 {
   display: block;
   visibility: visible;
 }
+
+@media (max-width: 530px) {
+  .filters {
+    flex-direction: column;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .filters > .locations {
+    width: calc(100% - 2 * 10px);
+    height: 40px;
+    grid-template-rows: 60% 40%;
+    padding: 5px 10px 15px 10px;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .filters > .amenities {
+    width: calc(100% - 2 * 10px);
+    height: 40px;
+    grid-template-rows: 60% 40%;
+    padding: 5px 10px 15px 10px;
+  }
+
+  .filters > .locations > .popover,
+  .filters > .amenities > .popover {
+    top: 40px;
+    width: calc(100% - 2 * 10px - 2 * 1px);
+    padding: 10px;
+  }
+
+  .filters > button {
+    position: unset;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+  }
+}
